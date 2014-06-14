@@ -60,11 +60,13 @@ class IndexController extends AbstractActionController
                 'id' => $crossimagesData->id,
                 'first_row' => $crossimagesData->first_row,
                 'second_row' => $crossimagesData->second_row
+
             );
             $form->setData($tmpArray);
             return array(
                  'id' => $id,
-                 'form' => $form
+                 'form' => $form,
+                 'image' => $crossimagesData->image
              );
         } else {
             return $this->redirect()->toUrl('/');
@@ -87,7 +89,8 @@ class IndexController extends AbstractActionController
             $form->setData($tmpArray);
             return array(
                  'id' => $id,
-                 'form' => $form
+                 'form' => $form,
+                 'image' => $crossimagesData->image
              );
         } else {
             return $this->redirect()->toUrl('/');
@@ -99,12 +102,51 @@ class IndexController extends AbstractActionController
             $id = $this->getRequest()->getPost('sId');
             $fristRow = $this->getRequest()->getPost('sFirst_row');
             $secondRow = $this->getRequest()->getPost('sSecond_row');
-            
-            $this->getCrossimagesTable()->saveEditCrossimages($id, $fristRow, $secondRow);
+            $photo = $this->getRequest()->getPost('sPhoto');
+            $this->getCrossimagesTable()->saveEditCrossimages($id, $fristRow, $secondRow, $photo);
             $result = new JsonModel(array(
                     'wynik' => 'success'          
             ));
            return $result;
         }
+    }
+    public function checkExistPhotoAjaxAction()
+    {   
+      if($this->getRequest()->isPost()){
+          $a = $this->getRequest()->getPost("filename");
+          $targetFolder = 'public/img/clearfix'; 
+          if (file_exists($targetFolder . '/' . $a)) {
+              echo '1';
+          } else {
+              echo '0';
+          }
+      }
+      return $this->response;  
+    } 
+
+    public function uploadifyAjaxAction(){
+        $uploadDir = 'public/img/clearfix/';
+
+        if (!empty($_FILES)) {
+          $tempFile   = $_FILES['Filedata']['tmp_name'][0];
+          $targetFile = $uploadDir . $_FILES['Filedata']['name'][0];
+
+          // Validate the file type
+          $fileTypes = array('jpg', 'jpeg', 'gif', 'png'); // Allowed file extensions
+          $fileParts = pathinfo($_FILES['Filedata']['name'][0]);
+
+          // Validate the filetype
+          if (in_array($fileParts['extension'], $fileTypes)) {
+            move_uploaded_file($tempFile,$targetFile);
+            echo 1;
+
+          } else {
+
+            // The file type wasn't allowed
+            echo 'Invalid file type.';
+
+          }
+        }
+        return $this->response;
     }
 }

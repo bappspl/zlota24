@@ -1,5 +1,5 @@
 $(document).ready(function (){
-	$('#description').ckeditor({
+	$('#description, #endDescription').ckeditor({
         toolbar: 'Full'
     });
 	var photosQueue = '';
@@ -35,17 +35,15 @@ $(document).ready(function (){
 						$('#step1').hide();
 						$('#step2').show();
 						
-						$('#file_upload').uploadify({
-							'checkExisting' : '/admin/gallery/checkExistPhotoAjax',
+						$('#file_upload').uploadifive({
+							'checkScript' : '/admin/gallery/checkExistPhotoAjax',
 							'multi'    : true,
-							'fileTypeExts' : '*.jpg; *.png',
 							'formData' : {
 								'idGallery' : idEditGallery,
 								'edit' : 1
 							},
-							'swf'      : '/uploadify.swf',
-							'uploader' : '/admin/gallery/uploadEditPhotoGalleryAjax',
-							'onUploadSuccess' : function(file, data, response) {
+							'uploadScript' : '/admin/gallery/uploadEditPhotoGalleryAjax',
+							'onUploadComplete' : function(file, data, response) {
 								$('#step2 img').each(function (){
 									if($(this).attr('src').indexOf(file.name) !== -1) {
 										var tmpId = $(this).next().attr('id');

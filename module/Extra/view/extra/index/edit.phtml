@@ -1,9 +1,8 @@
 <?php $this->headLink()->appendStylesheet('/css/offer.css'); ?>
 <?php $this->headScript()->appendFile('/ckeditor/ckeditor.js')
                          ->appendFile('/ckeditor/adapters/jquery.js'); ?>
-<?php $this->headScript()->appendFile('/js/jquery.uploadify.js'); ?>
-<?php $this->headLink()->appendStylesheet('/css/uploadify.css'); ?>
-
+<?php $this->headScript()->appendFile('/js/jquery.uploadifive-v1.0.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/uploadifive.css'); ?>
 <div class="well">
 	<div class="row">
 		<div class="col-md-12">	
@@ -15,11 +14,12 @@
 			<?php echo $this->formHidden($form->get('image'));?>
 			<div class="col-md-12">				
 					<div class="col-md-6">
-						<?php echo $this->formLabel($form->get('image-upload'));?>
-						<?php echo $this->formElement($form->get('image-upload'));?>
+						
+						<input id="file_upload" name="file_upload" type="file" multiple="true">
+						<div id="queue"></div>
 						<div class="col-md-12" id="photo-view">
 							<?php if (!empty($image)): ?>
-								<img src="/img/offer/<?php echo $image; ?>" alt="" class="offer-edit-image">
+								<img src="/img/extra/<?php echo $image; ?>" alt="" class="offer-edit-image">
 							<?php endif; ?>
 						</div>
 					</div>
@@ -43,17 +43,16 @@
         toolbar: 'Full',        
     });   
 	$(function() {
-    	$('#image-upload').uploadify({
-	        'swf'      : '/uploadify.swf',
-	        'uploader' : '/admin/extra/uploadifyAjax',
-	        'checkExisting' : '/admin/extra/checkExistPhotoAjax',
-	        'multi'    : false,
-	        'fileTypeExts' : '*.jpg; *.png',
-	        'onUploadSuccess' : function(file, data, response) {
-	        	$('#photo-view').html('');        	
+		$('#file_upload').uploadifive({
+			'auto'         : true,
+			'queueID'      : 'queue',
+			'checkScript'  : '/admin/extra/checkExistPhotoAjax',
+			'uploadScript' : '/admin/extra/uploadifyAjax',
+			'onUploadComplete' : function(file, data) {
+				$('#photo-view').html('');        	
 	        	$('#photo-view').append('<img class="offer-edit-image" src="/img/extra/' + file.name +'" />');
 	        	$('#image').val(file.name);
 			}
-	    });
+		});
 	});
 </script>

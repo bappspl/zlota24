@@ -1,7 +1,4 @@
 $(document).ready(function (){
-	$('#description').ckeditor({
-        toolbar: 'Full'
-    });
 	var photosQueue = '';
 	$('#saveGallery').on('click', function(){
 		var checkedVals = $('.check:checkbox:checked').map(function() {
@@ -35,16 +32,14 @@ $(document).ready(function (){
 						$('#idGallery').val(json['idGallery']);
 						var idGallery = $('#idGallery').val();
 						
-						$('#file_upload').uploadify({
-							'checkExisting' : '/admin/gallery/checkExistPhotoAjax',
+						$('#file_upload').uploadifive({
+							'checkScript' : '/admin/gallery/checkExistPhotoAjax',
 							'multi'    : true,
-							'fileTypeExts' : '*.jpg; *.png',
 							'formData' : {
 								'idGallery' : idGallery
 							},
-							'swf'      : '/uploadify.swf',
-							'uploader' : '/admin/gallery/uploadPhotoGalleryAjax',
-							'onUploadSuccess' : function(file, data, response) {
+							'uploadScript' : '/admin/gallery/uploadPhotoGalleryAjax',
+							'onUploadComplete' : function(file, data, response) {
 								photosQueue = photosQueue + ',' + file.name;
 							},
 							'onQueueComplete' : function(queueData) {
@@ -146,4 +141,7 @@ $(document).ready(function (){
 			}
 		});
 	});
+	$('#description, #endDescription').ckeditor({
+        toolbar: 'Full'
+    });
 });

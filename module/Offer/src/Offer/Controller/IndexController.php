@@ -71,12 +71,27 @@ class IndexController extends AbstractActionController
     } 
 
     public function uploadifyAjaxAction(){
-        $targetFolder = 'public/img/offer'; 
+        $uploadDir = 'public/img/offer/';
+
         if (!empty($_FILES)) {
-            $tempFile = $_FILES['Filedata']['tmp_name'];            
-            $targetFile = rtrim($targetFolder,'/') . '/' . $_FILES['Filedata']['name'];
+          $tempFile   = $_FILES['Filedata']['tmp_name'][0];
+          $targetFile = $uploadDir . $_FILES['Filedata']['name'][0];
+
+          // Validate the file type
+          $fileTypes = array('jpg', 'jpeg', 'gif', 'png'); // Allowed file extensions
+          $fileParts = pathinfo($_FILES['Filedata']['name'][0]);
+
+          // Validate the filetype
+          if (in_array($fileParts['extension'], $fileTypes)) {
             move_uploaded_file($tempFile,$targetFile);
-            echo '1';          
+            echo 1;
+
+          } else {
+
+            // The file type wasn't allowed
+            echo 'Invalid file type.';
+
+          }
         }
         return $this->response;
     }

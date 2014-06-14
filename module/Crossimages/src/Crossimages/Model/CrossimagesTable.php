@@ -22,10 +22,11 @@ class  CrossimagesTable
         $row = $result->current();
         return $row;
     }
-    public function saveEditCrossimages($id, $fristRow, $secondRow) {
+    public function saveEditCrossimages($id, $fristRow, $secondRow, $photo) {
         $data = array(
             'first_row' => $fristRow,
-            'second_row' => $secondRow
+            'second_row' => $secondRow,
+            'image' => $photo
         );
         $this->tableGateway->update($data, "cms_crossimage.id = " . $id);
     }

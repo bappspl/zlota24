@@ -225,43 +225,61 @@ class IndexController extends AbstractActionController
     }
 
     public function uploadPhotoGalleryAjaxAction()
-    {       
-       // $verifyToken = md5('unique_salt' . $this->getRequest()->getPost('timestamp'));
-        if($this->getRequest()->isPost()){
-            $targetFolder = 'public/img/gallery'; 
-            $tempFile = $_FILES['Filedata']['tmp_name'];
-            $targetFile = rtrim($targetFolder,'/') . '/' . $_FILES['Filedata']['name'];
-            
-            $aReplacePL = array('ą' => 'a', 'ę' => 'e', 'ś' => 's', 'ć' => 'c', 'ó' => 'o', 'ń' => 'n', 'ż' => 'z', 'ź' => 'z', 'ł' => 'l', 'Ą' => 'A', 'Ę' => 'E', 'Ś' => 'S', 'Ć' => 'C', 'Ó' => 'O', 'Ń' => 'N', 'Ż' => 'Z', 'Ź' => 'Z', 'Ł' => 'L');
-            $wynik = str_replace(array_keys($aReplacePL), array_values($aReplacePL), $targetFile);
+    {      
+        $uploadDir = 'public/img/gallery/';
+
+        if (!empty($_FILES)) {
+          $tempFile   = $_FILES['Filedata']['tmp_name'][0];
+          $targetFile = $uploadDir . $_FILES['Filedata']['name'][0];
+
+          // Validate the file type
+          $fileTypes = array('jpg', 'jpeg', 'gif', 'png'); // Allowed file extensions
+          $fileParts = pathinfo($_FILES['Filedata']['name'][0]);
+
+          // Validate the filetype
+          if (in_array($fileParts['extension'], $fileTypes)) {
 
             $idGallery = $this->getRequest()->getPost('idGallery');
-            $this->getPhotosTable()->saveImageToGallery($idGallery, $wynik);
+            $this->getPhotosTable()->saveImageToGallery($idGallery, $targetFile);
+            move_uploaded_file($tempFile,$targetFile);
+            echo 1;
 
-            $fileParts = pathinfo($_FILES['Filedata']['name']);
-            move_uploaded_file($tempFile,$wynik);
-            echo '1';
+          } else {
+
+            // The file type wasn't allowed
+            echo 'Invalid file type.';
+
+          }
         }
-        return $this->response;
+        return $this->response; 
     }
 
     public function uploadEditPhotoGalleryAjaxAction()
     {       
-       // $verifyToken = md5('unique_salt' . $this->getRequest()->getPost('timestamp'));
-        if($this->getRequest()->isPost()){
-            $targetFolder = 'public/img/gallery'; 
-            $tempFile = $_FILES['Filedata']['tmp_name'];
-            $targetFile = rtrim($targetFolder,'/') . '/' . $_FILES['Filedata']['name'];
-            
-            $aReplacePL = array('ą' => 'a', 'ę' => 'e', 'ś' => 's', 'ć' => 'c', 'ó' => 'o', 'ń' => 'n', 'ż' => 'z', 'ź' => 'z', 'ł' => 'l', 'Ą' => 'A', 'Ę' => 'E', 'Ś' => 'S', 'Ć' => 'C', 'Ó' => 'O', 'Ń' => 'N', 'Ż' => 'Z', 'Ź' => 'Z', 'Ł' => 'L');
-            $wynik = str_replace(array_keys($aReplacePL), array_values($aReplacePL), $targetFile);
+       $uploadDir = 'public/img/gallery/';
+
+        if (!empty($_FILES)) {
+          $tempFile   = $_FILES['Filedata']['tmp_name'][0];
+          $targetFile = $uploadDir . $_FILES['Filedata']['name'][0];
+
+          // Validate the file type
+          $fileTypes = array('jpg', 'jpeg', 'gif', 'png'); // Allowed file extensions
+          $fileParts = pathinfo($_FILES['Filedata']['name'][0]);
+
+          // Validate the filetype
+          if (in_array($fileParts['extension'], $fileTypes)) {
 
             $idGallery = $this->getRequest()->getPost('idGallery');
-            $id = $this->getPhotosTable()->saveEditImageToGallery($idGallery, $wynik);
+            $id = $this->getPhotosTable()->saveEditImageToGallery($idGallery, $targetFile);
+            move_uploaded_file($tempFile,$targetFile);
+            echo 1;
 
-            $fileParts = pathinfo($_FILES['Filedata']['name']);
-            move_uploaded_file($tempFile,$wynik);
-            echo $id;
+          } else {
+
+            // The file type wasn't allowed
+            echo 'Invalid file type.';
+
+          }
         }
         return $this->response;
     }

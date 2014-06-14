@@ -1,5 +1,7 @@
 <?php $this->headLink()->appendStylesheet('/css/crossimages.css'); ?>
 <?php $this->headScript()->appendFile('/js/crossimages.js'); ?>
+<?php $this->headScript()->appendFile('/js/jquery.uploadifive-v1.0.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/uploadifive.css'); ?>
 <div class="well">
 <input type="hidden" id="idCrossimages" value="<?php echo $this->id; ?>" />
 <div class="row">
@@ -17,6 +19,17 @@
         <?php echo $this->formInput($form->get('second_row')); ?>
 		<div class="error-validate"> *uzupełnij to pole </div>
 	</div>
+	<div class="col-md-6">
+		<p class="help-block"> Wybierz plik (Uwaga! Najlepiej umieszczać zdjęcia o rozmiarze 1920x1080)</p>
+		<input id="file_upload" name="file_upload" type="file" multiple="false">
+		<div id="queue"></div>
+
+		<div class="col-md-12" id="photo-view">
+			<?php if (!empty($this->image)): ?>
+				<img src="<?php echo $this->image; ?>" alt="" class="offer-edit-image">
+			<?php endif; ?>
+		</div>
+	</div>
 	<div class="col-md-12 marginTop">
 		<i class="pull-left"> pola oznaczone <span class="red">*</span> są polami obowiązkowymi </i>
 		<div class="pull-right">
@@ -27,3 +40,18 @@
 </div>
 <?php echo $this->form()->closeTag(); ?>
 </div>
+<script>
+	$(function() {
+		$('#file_upload').uploadifive({
+			'auto'         : true,
+			'queueID'      : 'queue',
+			'checkScript'  : '/admin/crossimages/checkExistPhotoAjax',
+			'uploadScript' : '/admin/crossimages/uploadifyAjax',
+			'onUploadComplete' : function(file, data) {
+				$('#photo-view').html('');        	
+	        	$('#photo-view').append('<img class="offer-edit-image" src="/img/clearfix/' + file.name +'" />');
+	        	$('#image').val(file.name);
+			}
+		});
+	});
+</script>

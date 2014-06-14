@@ -125,7 +125,8 @@ class IndexController extends AbstractActionController
         foreach ($allCrossimages as $key => $crossimage) {
             $tmp = array(
                 'first_row' => $crossimage->first_row,
-                'second_row' => $crossimage->second_row
+                'second_row' => $crossimage->second_row,
+                'image' => $crossimage->image
             );
             array_push($crossimagesArray, $tmp);
         }
