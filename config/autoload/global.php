@@ -14,7 +14,7 @@
 return array(
     'db' => array(
          'driver'         => 'Pdo',
-         'dsn'            => 'mysql:dbname=vmadmin_zlota;host=sql.s12.vdl.pl',
+         'dsn'            => 'mysql:dbname=cms-simple;host=localhost',
          'driver_options' => array(
              PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
          ),

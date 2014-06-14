@@ -1,1 +1,15 @@
-wojtek
+127.0.0.1 ir.zlota24.loc
+
+
+
+<VirtualHost *:80>
+     ServerName ir.zlota24.loc
+     DocumentRoot "D:\xampp\htdocs\web-ir\zlota24\public"
+     SetEnv APPLICATION_ENV "development"
+     <Directory "D:\xampp\htdocs\web-ir\zlota24\public">
+         DirectoryIndex index.php
+         AllowOverride All
+         Order allow,deny
+         Allow from all
+     </Directory>
+ </VirtualHost>
