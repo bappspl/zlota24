@@ -128,6 +128,10 @@ return array(
              'label' => 'Wideo',
              'route' => 'video'             
          ),
+         array(
+             'label' => 'Regulamin',
+             'route' => 'statute'             
+         ),
         ),
     ),
 );

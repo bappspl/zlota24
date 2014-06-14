@@ -1,0 +1,27 @@
+<?php $this->headLink()->appendStylesheet('/css/offer.css'); ?>
+<?php $this->headScript()->appendFile('/ckeditor/ckeditor.js')
+                         ->appendFile('/ckeditor/adapters/jquery.js'); ?>
+<div class="well">
+	<div class="row">
+		<div class="col-md-12">	
+			<h3 class="pull-left">Edytowanie regulaminu</h3>
+		</div>
+	</div>
+	<div class="row">
+		<form action="/admin/statute/edit" method="POST" name="post" id="post">				
+			<div class="col-md-12">				
+				<?php echo $this->formLabel($form->get('description_1'));?>
+				<?php echo $this->formElement($form->get('description_1'));?>								
+			</div>			
+			<div class="col-md-12 text-right offer-buttons">				
+				<button class='btn' type='button' onClick="window.location.href='/admin/statute'">Anuluj</button>	
+				<?php echo $this->formRow($form->get('submit'));?>								
+			</div>			
+		</form>
+	</div>	
+</div>		
+<script>
+	$('#textarea1').ckeditor({
+        toolbar: 'Full',        
+    });
+</script>

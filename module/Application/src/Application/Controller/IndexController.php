@@ -91,6 +91,17 @@ class IndexController extends AbstractActionController
         return $this->tagsTable;
     }
 
+    protected $statuteTable;
+
+    public function getStatuteTable()
+    {
+        if (!$this->statuteTable) {
+            $sm = $this->getServiceLocator();
+            $this->statuteTable = $sm->get('Statute\Model\StatuteTable');
+        } 
+        return $this->statuteTable;
+    }
+
     public function indexAction()
     {
     	$offer = $this->getOfferTable()->getById(1);
@@ -138,6 +149,9 @@ class IndexController extends AbstractActionController
             array_push($tagers, $tag->name);
         }
         $tags = implode(', ', $tagers);
+
+        //statute
+        $statute = $this->getStatuteTable()->getById(1);
        	return new ViewModel(array('offer' => $offer,
        							   'extra' => $extra,
                                    'galleries' => $galleries,
@@ -145,7 +159,8 @@ class IndexController extends AbstractActionController
                                    'galleriesName' => $galleriesNames,
                                    'video' => $videoData->description,
                                    'crossimages' => $crossimagesArray,
-                                   'tags' => $tags
+                                   'tags' => $tags,
+                                   'statute' => $statute
        	));    
     }    
 }

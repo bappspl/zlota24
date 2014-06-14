@@ -350,7 +350,26 @@
                         <li><a href="#video" data-scroll>Video</a></li> 
                         <li>|</li>                      
                         <li><a href="#contact" data-scroll>Kontakt</a></li>
+                        <li>|</li>                      
+                        <li><a href="#"  data-toggle="modal" data-target=".bs-example-modal-lg">Regulamin</a></li>
                     </ul>
                 </div>
             </div>
         </footer>
+
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Regulamin</h4>
+              </div>
+              <div class="modal-body">
+               <?php echo $statute->description_1 ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>                
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->

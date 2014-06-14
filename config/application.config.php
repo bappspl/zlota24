@@ -12,7 +12,8 @@ return array(
         'Video',
         'Tags',
         'Extra',
-        'CmsSettings' 
+        'CmsSettings',
+        'Statute' 
     ),
 
     // These are various options for the listeners attached to the ModuleManager
