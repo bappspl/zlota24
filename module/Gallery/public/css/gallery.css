@@ -1,0 +1,92 @@
+.error-validate {
+	display:none;
+	color:red;
+}
+.tabs-content .slickhoverWrapper .pictures img {
+    height: auto !important;
+    width: 100% !important;
+}
+.deletePhoto {
+  position: relative;
+  top: -42px;
+  right: 27px;
+  background: #E6E6E6;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  padding-right: 3px;
+  padding-left: 2px;
+  cursor: pointer;
+  border-bottom-left-radius: 3px;
+}
+.editGalleryPhoto {
+  margin-right: 0px !important;
+  cursor: default !important;
+}
+.fixTheme { padding: 8px;}
+.spinner-action { margin-top: 15px; display: none;}
+.red, .required { color:red;}
+.addedPhoto {
+	max-width: 120px;
+	margin-right: 10px;
+  margin-bottom: 10px;
+	background: #E6E6E6;
+	padding: 5px;
+	border-radius: 5px;
+  cursor: pointer;
+}
+.addedPhotoBorder {
+  border: 3px solid #E6E6E6;
+}
+.addedPhotoBorderCurrent {
+  border: 3px solid #428bca ;
+}
+.stepwizard-step p {
+    margin-top: 10px;    
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;     
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+    
+}
+
+.stepwizard-step {    
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+#step2, #step3 {display: none;}
+.step {
+	min-height: 300px;
+}

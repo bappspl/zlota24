@@ -1,0 +1,1204 @@
+/* vitravel Css */
+
+/* 
+	[00] Misc. Stylesheet
+	[01] Top Navigation Stylesheets
+	[02] Slider Stylesheets
+	[03] About Section Stylesheets
+	[04] Last Minute Section Stylesheets
+	[05] Mos Popular Tours Section Stylesheets
+	[06] Banner Section Stylesheets
+	[07] Flights & Hotels Tabs Section Stylesheets
+	[08] Top Destinations Section Stylesheets
+	[09] Hot Deals Section Stylesheets
+	[10] Cruise Tours Section Stylesheets
+	[11] Contact (Footer) Section Stylesheets
+*/
+
+/* [00] Misc. Stylesheet */
+
+* {
+
+  -webkit-transition: all 0.3s;
+     -moz-transition: all 0.3s;
+       -o-transition: all 0.3s;
+      -ms-transition: all 0.3s;
+          transition: all 0.3s;
+	outline: none
+}
+
+@font-face {
+    font-family: 'latolight';
+    src: url('/public/zlota24/fonts/lato/lato-lig-webfont.eot');
+    src: url('/public/zlota24/fonts/lato/lato-lig-webfontd41d.eot?#iefix') format('embedded-opentype'),
+         url('/public/zlota24/fonts/lato/lato-lig-webfont.woff') format('woff'),
+         url('/public/zlota24/fonts/lato/lato-lig-webfont.ttf') format('truetype'),
+         url('/public/zlota24/fonts/lato/lato-lig-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {
+	font-family: "Roboto Slab";
+	font-size: 2em;
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+	color: #1d82e5;
+	margin:0;
+	padding:0;
+}
+
+h2 {
+	font-family: "Roboto Slab";
+	font-size: 1.5em;
+	font-weight: 700;
+	letter-spacing: -1px;
+	text-align: center;
+	color: #1d82e5;
+	margin:0;
+	padding:0;
+}
+
+.btn {
+	border-radius: 3px;
+	font-family: "Roboto";
+	font-size: 14px;
+	font-weight: 900;
+	letter-spacing: -1px;
+	border: none;
+	text-transform: uppercase;
+}
+
+.btn-success {
+	color:#3d6f23;
+	text-shadow: 1px 1px #89cc6c;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #82D344),
+		color-stop(1, #51AF34)
+	);
+	background-image: -o-linear-gradient(bottom, #82D344 0%, #51AF34 100%);
+	background-image: -moz-linear-gradient(bottom, #82D344 0%, #51AF34 100%);
+	background-image: -webkit-linear-gradient(bottom, #82D344 0%, #51AF34 100%);
+	background-image: -ms-linear-gradient(bottom, #82D344 0%, #51AF34 100%);
+	background-image: linear-gradient(to bottom, #82D344 0%, #51AF34 100%);
+}
+
+.btn-success:hover {
+	text-shadow: 1px 1px #35661c;
+}
+
+.btn-primary {
+	color: #22619f;
+	text-shadow: 1px 1px #5196da;
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0, #57ABFF),
+		color-stop(1, #1D81E5)
+	);
+	background-image: -o-linear-gradient(bottom, #57ABFF 0%, #1D81E5 100%);
+	background-image: -moz-linear-gradient(bottom, #57ABFF 0%, #1D81E5 100%);
+	background-image: -webkit-linear-gradient(bottom, #57ABFF 0%, #1D81E5 100%);
+	background-image: -ms-linear-gradient(bottom, #57ABFF 0%, #1D81E5 100%);
+	background-image: linear-gradient(to bottom, #57ABFF 0%, #1D81E5 100%);
+}
+
+.pattern {
+	background: url(../img/pattern.png) repeat;
+}
+
+body { background: #f1f1f1; padding:0 }
+
+/* [01] Top Navigation */
+	.topnav {
+		width: 100%;
+		position: absolute;
+		top: 50px;
+	}
+
+	.topnav .navbar-custom {
+		min-height: 90px;
+		line-height: 90px;
+		margin-bottom: 0px;
+		background: rgba(145, 145, 145, 0.7);
+	}
+	
+	.topnav .navbar-custom .navbar-brand {
+		padding: 5px 15px;
+		line-height: 80px;
+	}
+	
+	.topnav .navbar-custom .navbar-nav {
+		margin: 23px 0 0 0
+	}
+	
+	.topnav .navbar-custom .navbar-nav li a {
+		font-family: "Roboto";
+		font-size: 18px;
+		font-weight: 300;
+		letter-spacing: -1px;
+		color:#222427;
+		border: 1px solid transparent;
+		border-radius: 5px;
+		padding: 8px 12px;
+	}
+	
+	.topnav .navbar-custom .navbar-nav li a:hover {
+		background: transparent;
+		color:#000000;
+		border: 1px solid #000000;
+	}
+	
+	.topnav .navbar-custom .navbar-nav li a:active {
+		background: transparent;
+		color:#112a5d;
+		border: 1px solid #112a5d;
+	}
+	
+	.topnav .navbar-custom .navbar-nav li a:focus {
+		background: transparent;
+		color:#112a5d;
+		border: 1px solid #112a5d;
+	}
+
+	.topnav .top-nav-collapse {
+		background: rgba(145, 145, 145, 0.7);
+		border-bottom: 3px solid #727375;
+	}
+	
+	.topnav .navbar-custom .navbar-toggle .icon-bar {
+		background:#ffffff;
+	}
+	
+	.topnav .navbar-header {
+		height: 90px;
+	}
+	
+	.topnav .navbar-header .navbar-toggle {
+		margin-top: 28px;
+		border: 1px solid #ffffff;
+	}
+	
+/* [02] Slider */
+	.slider {
+		position: relative;
+	}
+	
+	.slider .item a:after {
+		content: attr(data-text);
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+		padding: 4px 8px;
+		position: absolute;
+		top: 60%;
+		/*white-space: nowrap;*/ 
+		z-index: 20;
+		font-family: "Roboto Slab";
+		font-size: 50px;
+		font-weight: 300;
+		color: #ffffff;
+		letter-spacing: -4px;
+		text-shadow: 1px 1px rgba(0,0,0,0.5);
+	}
+
+	.slider .slider-arrows {
+		position: absolute;
+		bottom:0;
+		width: 100%;
+		height: 55px;
+		background: url(../img/arrow-bg.png) no-repeat center bottom;
+		text-align: center;
+	}
+
+	.slider .slider-arrows i {
+		color:#ffffff;
+		font-size: 30px;
+		cursor: pointer;
+	}
+
+	.slider .slider-arrows i:hover {
+		color:#1d82e5;
+	}
+
+
+/* [03] offer Us */
+	.offer, .karwia {
+		background: #ffffff;
+		padding: 120px 0 80px 0
+	}
+	
+	.offer .desc, .karwia .desc {
+		padding-top: 30px;
+		font-family: "Roboto";
+		font-size: 16px;
+		font-weight: 300;
+		letter-spacing: -1px;
+		text-align: center;		
+	}
+
+
+/* [04] Last Minute Deal */
+	.last-minute {
+		background-color: rgba(29,130,230, 1);
+		background-image: url(../img/dotted_worldmap.png);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+		padding: 30px 0
+	}
+	
+	.last-minute h1 {
+		color: #ffffff
+	}
+	
+	.last-minute .last-deal {
+		padding: 5px 0;
+		font-family: "Roboto Slab";
+		font-size: 20px;
+		font-weight: 300;
+		letter-spacing: -1px;
+		text-align: center;
+		color: #ffffff
+	}
+
+	.last-minute .stars {
+		text-align: center
+	}
+
+/* [05] Tours */
+	.tours {
+		padding: 120px 0 80px 0;
+		background: white;
+	}
+	
+	.tours h1 {
+		margin-bottom: 50px;
+		text-shadow: 1px 1px #ffffff;
+	}
+
+	.tours .item {
+		position: relative;
+		margin: 0 15px
+	}
+	
+	.tours .item img {
+		border-radius: 3px 3px 0 0
+	}
+	
+	.tours .item:hover > .badge {
+		top: 40px;
+	}
+	
+	.tours .item:hover > .tour-title {
+		background: #E1E900;
+	}
+	
+	.tours .item:hover > .tour-title a {
+		color: #fff;
+	}
+	
+	.tours .item .badge {
+		background: none;
+		position: absolute;
+		top: 30px;
+		right: -14px
+	}
+	
+	.tours .item .tour-title {
+		padding: 15px 0;
+		background: #102a5d;
+		text-align: center;
+	}
+	
+	.tours .item .tour-title .title {
+		font-family: "Roboto Slab";
+		font-size: 18px;
+		font-weight: 700;
+		color: #ffffff;
+		margin: 0 0 -3px 0;
+	}
+	
+	.tours .item .tour-title a {
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 300;
+		color:#1d82e5;
+		text-decoration: none;
+	}
+	
+	.tours .item .tour-title a:hover {
+		color: #ffffff
+	}
+	
+	.tours .item .tour-details {
+		padding: 25px;
+		background:#f1f1f1;
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 500;
+		text-align: center;
+		color: #777777;
+		border-radius: 0 0 3px 3px
+	}
+
+	.tour-detail {
+		position: relative;
+		background:#ffffff;
+		padding: 20px;
+		border-radius: 5px
+	}
+	
+	.tour-detail h1 {
+		text-align: left;
+		margin: 0 0 10px 0;
+	}
+	
+	.tour-detail .stars {
+		margin-bottom: 20px
+	}
+	
+	.tour-detail .desc {
+		font-family: "Roboto";
+		font-size: 16px;
+		font-weight: 300;
+		letter-spacing: -1px;
+		color: #999999
+	}
+	
+	.tour-detail img {
+		border-radius: 3px;
+	}
+	
+	.tour-detail .close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		font-size: 30px;
+	}
+	
+/* [06] Banner */
+	.banner-space {
+		padding-bottom: 50px;
+		padding-top: 50px;
+	}
+	.rightText {
+		text-align: right;
+	}
+	.centerText {
+		text-align: center;
+	}
+	.clear1 {
+		background-image: url(../img/clearfix/clear1.jpg);
+	}
+	.clear2 {
+		background-image: url(../img/clearfix/clear2.jpg);
+	}
+	.clear3 {
+		background-image: url(../img/clearfix/clear3.jpg);
+	}
+	.clear4 {
+		background-image: url(../img/clearfix/clear4.jpg);
+	}
+	.banner {
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-attachment: fixed;
+		padding: 45px 0
+	}
+
+	.banner img {
+		width: 200px;
+		border-radius: 50%;
+		border: 10px solid rgba( 255,255,255, 0.2);
+	}
+
+	.banner .banner-slogan {
+		padding: 20px;		
+		font-family: 'latolight', sans-serif;
+		font-size: 26px;
+		font-weight: 300;
+		color:black;
+		letter-spacing: -1px;
+		line-height: 40px
+	}
+	
+	.banner .banner-slogan b {
+		font-size: 36px;
+		font-weight: 600;
+		letter-spacing: -2px;
+	}
+
+	
+/* [07] Flights & Hotels Tabs */
+	.flight-hotel {
+		padding: 120px 0 80px 0
+	}
+
+	.flight-hotel .tabs ul {
+		margin: 0;
+		padding: 0;
+		list-style: none
+	}
+	
+	.flight-hotel .tabs ul li {
+		float: left;
+		padding: 10px 20px
+	}
+	
+	.flight-hotel .tabs ul li.active {
+		background: #ffffff;
+		border-radius: 5px 5px 0 0;
+	}
+	
+	.flight-hotel .tabs a {
+		font-family: "Roboto Slab";
+		font-size: 26px;
+		font-weight: 600;
+		color:#ffffff;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .tabs a.all {
+		color: #1d82e5;
+	}
+	
+	.flight-hotel .tabs a.house1, .flight-hotel .tabs a.house2, .flight-hotel .tabs a.house3, .flight-hotel .tabs a.house4{
+		color: #E1E900;
+	}
+	
+	.flight-hotel .tabs-content {
+		background: #ffffff;
+		padding: 20px 30px;
+		border-radius: 5px
+	}
+	
+	.flight-hotel .tabs-content .content {
+		display: none
+	}
+
+	.flight-hotel .tabs-content .content .item {
+		background: #f1f1f1;
+		border-radius: 5px;
+		border-bottom: 3px solid #dddddd;
+		padding: 20px;
+		margin-bottom:15px;
+	}
+	
+
+	.flight-hotel .tabs-content .active {
+		display: block
+	}
+	
+	.flight-hotel .tabs-content .item .deperture {
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 600;
+		color:#999999;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .tabs-content .item .item-title {
+		font-family: "Roboto Slab";
+		font-size: 26px;
+		font-weight: 600;
+		color:#1d82e5;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .tabs-content .item .item-desc {
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 400;
+		color:#999999;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .tabs-content .item .item-price {
+		padding-top: 25px;
+		font-family: "Roboto Slab";
+		font-size: 50px;
+		font-weight: 600;
+		color:#1d82e5;
+		letter-spacing: -1px;
+		text-decoration: none;
+		line-height: 30px;
+	}
+	
+	.flight-hotel .tabs-content .item .item-price span {
+		font-family: "Roboto Slab";
+		font-size: 16px;
+		font-weight: 600;
+		color:#999999;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .tabs-content .item .item-tools {
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 400;
+		color:#6aaa42;
+		letter-spacing: -1px;
+		text-decoration: none
+	}
+	
+	.flight-hotel .nano { width: 100%; max-height: 465px; }
+	.flight-hotel .nano .nano-content { padding-right: 25px; }
+	.flight-hotel .nano .nano-pane   { background: #999999; }
+	.flight-hotel .nano .nano-slider { background: #fff; margin: 2px; cursor: n-resize }
+
+
+/* [08] Destinations */
+	.destinations {
+		background-color: #1d82e5;
+		background-image: url(../img/clouds.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+	}
+	
+	.destinations .pattern {
+		background-color: rgba(0,130,255, 0.5);
+		padding: 120px 0 80px 0
+	}
+	
+	.destinations h1 {
+		color: #ffffff;
+		text-shadow: 1px 1px #5a94cc;
+		margin-bottom: 30px
+	}
+	
+	.destinations .item {
+		cursor: pointer;
+		margin: 0 15px;
+	}
+	
+	.destinations .item .image {
+		position: relative;
+	}
+	
+	.destinations .item .image img {
+		display: block;
+		border-radius: 5px 5px 0 0
+	}
+	
+	.destinations .item .badge {
+		background: none;
+		position: absolute;
+		top: 30px;
+		right: -14px
+	}
+	
+	.destinations .item:hover .badge {
+		top: 40px;
+	}
+	
+	.destinations .item .badge img {
+		border-radius: 0px
+	}
+	
+	.destinations .item .image .tools {
+		overflow:hidden;
+		position: absolute;
+		width:100%;
+		z-index:10;
+		bottom: 0px;
+		height: 0px;
+		line-height: 50px;
+		background: rgba( 239, 39, 0, 0.5);
+		font-family: "Roboto";
+		font-size: 16px;
+		font-weight: 600;
+		text-align: center;
+		color:#ffffff
+	}
+	
+	.destinations .item .image .tools i {
+		font-size: 20px
+	}
+	
+	.destinations .item:hover > .image .tools {
+		position:absolute;
+		height: 50px;
+	}
+
+	.destinations .item .details {
+		background-color:#112a5d;
+		padding: 20px;
+		border-radius: 0 0 5px 5px;
+	}
+	
+	.destinations .item .details h1 {
+		margin:0;
+		padding:0;
+		text-align: left;
+		text-shadow:none;
+	}
+	
+	.destinations .item .details .price {
+		font-family: "Roboto";
+		font-size: 36px;
+		font-weight: 900;
+		color:#84ff2b;
+	}
+	
+	.destinations .item:hover .details .price {
+		color: #ff3600;
+	}
+	
+	.destinations .item .details .desc {
+		font-family: "Roboto";
+		font-size: 12px;
+		font-weight: 400;
+		color: #fff;
+	}
+
+	
+/* [09] Hot Deals */
+	.deals {
+		padding: 120px 0 80px 0
+	}
+	
+	.deals h1 {
+		color:#ef2700;
+		text-shadow: 1px 1px #ffffff;
+		margin-bottom: 40px
+	}
+	
+	.deals .item {
+		margin: 0 20px;
+	}
+
+	.deals .item .image {
+		position: relative
+	}
+	
+	.deals .item .image img {
+		border-radius: 5px 5px 0 0
+	}
+
+	.deals .item .image .save {
+		width: 100%;
+		position: absolute;
+		top: -40px;
+		z-index: 100
+	}
+	
+	.deals .item .image .save-inner {
+		width: 80px;
+		height: 80px;
+		padding-top: 15px;
+		margin: 0 auto;
+		
+		font-family: "Roboto";
+		font-size: 18px;
+		font-weight: 900;
+		letter-spacing: -1px;
+		color:#ffffff;
+		text-align: center;
+		line-height: 20px;
+		
+		background: #ef2700;
+		border-radius: 50%;
+		border: 6px solid rgba( 255,255,255, 0.5);
+	}
+	
+	.deals .item .image .title {
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		background: rgba( 239,39,0, 0.5 );
+		font-family: "Roboto";
+		font-size: 20px;
+		font-weight: 400;
+		letter-spacing: -1px;
+		color:#ffffff;
+		padding: 10px 0;
+		text-align: center
+	}
+	
+	.deals .item .details {
+		background: #ffffff;
+		padding: 25px;
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 400;
+		color:#999999;
+		line-height: 18px;
+		border-radius: 0 0 5px 5px;
+		text-align: center;
+	}
+	
+	.deals .item .details a {
+		font-weight: 700;
+		color: #ef2700;
+		text-decoration: none
+	}
+
+	.deals .item .details a:hover {
+		color: #333333;
+	}
+
+	.deals .item:hover .image .title {
+		background: rgba( 17,42,93, 0.8 );
+	}
+	
+	.deals .item:hover .image .save {
+		top: 20px;
+	}
+	
+	.deals .item:hover .image .save-inner {
+		background: #112a5d;
+	}
+	
+	.deals .item:hover .details a {
+		color: #112a5d;
+	}
+	
+	.deals .item:hover .details a:hover {
+		color: #333333;
+	}
+
+
+/* [10] Cruises */
+	.cruises {
+		background-color: #1d82e5;
+		background-image: url(../img/beach.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+	}
+
+	.cruises .pattern {
+		background-color: rgba(0,130,255, 0.5);
+		padding: 120px 0 80px 0
+	}
+
+	.cruises h1 {
+		color: #ffffff;
+		text-shadow: 1px 1px #445983;
+		margin-bottom: 30px
+	}
+
+	.cruises .item {
+		cursor: pointer;
+		margin: 0 15px
+	}
+	
+	.cruises .item .image {
+		position: relative;
+	}
+	
+	.cruises .item .image img {
+		display: block;
+		border-radius: 5px 5px 0 0
+	}
+	
+	.cruises .item .badge {
+		background: none;
+		position: absolute;
+		top: 30px;
+		right: -14px
+	}
+	
+	.cruises .item:hover .badge {
+		top: 40px;
+	}
+	
+	.cruises .item .badge img {
+		border-radius: 0px
+	}
+	
+	.cruises .item .image .tools {
+		overflow:hidden;
+		position: absolute;
+		width:100%;
+		z-index:10;
+		bottom: 0px;
+		height: 0px;
+		line-height: 50px;
+		background: rgba( 239, 39, 0, 0.5);
+		font-family: "Roboto";
+		font-size: 16px;
+		font-weight: 600;
+		text-align: center;
+		color:#ffffff
+	}
+	
+	.cruises .item .image .tools i {
+		font-size: 20px
+	}
+	
+	.cruises .item:hover > .image .tools {
+		position:absolute;
+		height: 50px;
+	}
+
+	.cruises .item .details {
+		background-color:#112a5d;
+		padding: 20px;
+		border-radius: 0 0 5px 5px;
+	}
+	
+	.cruises .item .details h1 {
+		margin:0;
+		padding:0;
+		text-align: left;
+		text-shadow:none;
+	}
+	
+	.cruises .item .details .price {
+		font-family: "Roboto";
+		font-size: 36px;
+		font-weight: 900;
+		color:#84ff2b;
+	}
+	
+	.cruises .item:hover .details .price {
+		color: #ff3600;
+	}
+	
+	.cruises .item .details .desc {
+		font-family: "Roboto";
+		font-size: 12px;
+		font-weight: 400;
+		color: #fff;
+	}
+
+
+/* [11] Contact (Footer) */
+	.contact {
+		/*background:#f1f1f1;*/
+		background: #ffffff;
+		padding: 50px 0 10px 0
+	}
+
+	.contact h1 {
+		text-shadow: 1px 1px #ffffff;
+		margin-bottom: 30px
+	}
+	
+	.contact h2 {
+		text-align: left;
+		text-shadow: 1px 1px #ffffff;
+		margin-bottom: 30px
+	}
+	
+	.contact #map {
+		height: 185px;
+		border-radius: 5px;
+	}
+	
+	.contact .footer-text {
+		font-family: "Roboto Slab";
+		font-size: 16px;
+		font-weight: 400;
+		color:#999999;
+		letter-spacing: -1px
+	}
+	
+	.contact .social-icons {
+		margin-top: 15px;
+		margin-bottom: 20px;
+	}
+	
+	.contact .social-icons a {
+		font-size: 26px;
+		color:#666666;
+		text-decoration: none;
+	}
+	
+	.contact .social-icons a:hover {
+		color:#1d82e5;
+	}
+	
+	.contact .form {
+		margin-bottom: 20px;
+	}
+	
+	.contact .form input {
+		display: inline-block;
+		width: 100%;
+		border: 1px solid #999999;
+		padding: 4px 10px;
+		border-radius: 3px;
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 400;
+		margin-bottom: 5px;
+	}
+	
+	.contact .form textarea {
+		display: inline-block;
+		width: 100%;
+		height: 80px;
+		border: 1px solid #999999;
+		padding: 4px 10px;
+		border-radius: 3px;
+		font-family: "Roboto";
+		font-size: 14px;
+		font-weight: 400;
+		margin-bottom: 5px;
+		max-width: 100%;
+	}
+
+	.house-gallery{
+		padding-bottom: 10px;
+	}
+	.flight-hotel h1{
+		margin-bottom: 50px;		
+	}
+
+@media (max-width: 780px) {
+
+	.topnav {
+		top: 0px;
+	}
+	
+	.slider {
+		margin-top:91px;
+	}
+	
+	.slider .item a:after {
+		font-size: 25px;
+		letter-spacing: -1px;
+		top: 30%;
+	}
+	.img-inline{
+		display: none;
+	}
+	
+}
+
+.img-responsive{
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-o-transition: all 0s;
+	-ms-transition: all 0s;
+	 transition: all 0s; 
+	 outline: none; 
+}
+
+@media (max-width: 624px) {	
+	.flight-hotel .tabs ul li {
+		float: inherit;
+		padding: 10px 20px;
+		display: block;
+	}	
+
+}
+@media (max-width: 1200px) {
+	.about-ir{
+		margin-top: 10px;
+	}
+}	
+
+.about-ir{
+	 font-family: "Roboto";
+	font-size: 14px;
+	font-weight: 500;	
+	color: #777777;
+	border-top: 1px solid #777777;
+}
+
+
+/*narrow-up*/
+#navArrowUp {
+	display:none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 46px;
+    height: 46px;
+	border-radius: 4px;
+    background: url('../img/arrow.png') no-repeat;
+	opacity:0.7;
+    border: none;
+    transition: all 0.5s;
+	cursor: pointer;
+}
+#navArrowUp:hover {
+    transition: all 0.5s;
+    opacity:1;
+}
+
+.offer-image, .karwia-image{
+	max-width: 600px;
+	max-height: 300px;
+	margin-right: 40px;	
+	border: 8px solid #f1f1f1;
+}
+
+@media (max-width: 625px) {
+	.youtube{
+		width: 90%;
+	}
+}	
+
+.house-desc{
+	font-family: "Roboto";
+	font-size: 16px;
+	font-weight: 300;
+	letter-spacing: -1px;	
+	color: #999;
+}
+
+.house-desc h2{
+	margin: 10px 0;
+}
+
+.house-icons li{
+	display: inline-block;
+}
+.footer { text-align: right; }
+.footer li{
+	display: inline-block;
+}
+.footer ul {
+	padding-left: 0px;
+}
+.footer-info{
+	font-size: 10px;
+	line-height: 22px;
+}
+
+.desc p{
+	margin-top: 10px;
+}
+
+.slider-text{
+	text-align: center;
+	width: 100%;
+	margin: 0 auto;
+	padding: 4px 8px;
+	position: absolute;
+	top: 50%;
+	white-space: nowrap;
+	z-index: 20;
+	font-family: "Roboto Slab";
+	font-size: 50px;
+	font-weight: 300;
+	color: #ffffff;
+	letter-spacing: -4px;
+	text-shadow: 1px 1px rgba(0,0,0,0.5);
+	margin-top: 21%;
+}
+
+
+
+@media (max-width: 450px) {
+	.slider .item a:after{
+		font-size: 15px;
+	}
+}	
+
+@media (max-width: 375px) {
+	.slider .item a:after{
+		font-size: 12px;
+	}
+}
+
+.contact-section{
+	padding: 120px 0 80px 0;
+}
+
+.contact-section h1{
+	padding-bottom: 30px;
+}
+
+.pin1{
+	background-image: url(../img/contact/k1.png);
+	background-repeat:no-repeat;	
+	float: left;
+	padding-left: 120px;
+	
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 35px;
+	color: #1d82e5;
+	height: 98px;
+	position: relative;
+}
+
+.pin2{
+	background-image: url(../img/contact/k2.png);
+	background-repeat:no-repeat;
+	float: right;
+	height: 98px;
+	padding-left: 120px;
+	padding-top: 35px;
+	
+	font-size: 20px;
+	font-weight: bold;
+	color: #1d82e5;
+	position: relative;
+	
+}
+
+.pin3{
+	background-image: url(../img/contact/k3.png);
+	background-repeat:no-repeat;	
+	float: left;
+	padding-left: 120px;
+	
+	font-size: 20px;
+	font-weight: bold;
+	padding-top: 35px;
+	color: #1d82e5;
+	height: 98px;
+	position: relative;
+	margin-top: 5%;
+}
+
+.pin4{
+	background-image: url(../img/contact/k4.png);
+	background-repeat:no-repeat;
+	float: right;
+	height: 98px;
+	padding-left: 120px;
+	padding-top: 25px;
+	
+	font-size: 20px;
+	font-weight: bold;
+	color: #1d82e5;
+	position: relative;
+	margin-top: 5%;
+	
+}
+
+@media (max-width: 768px) {
+	.pin1, .pin2, .pin3, .pin4{
+		display: block;
+		width: 100%;
+	}
+
+	.pin2{
+		margin-top: 10px;
+		background-position:left;
+		text-align: left; 
+	}
+
+	.pin4{		
+		background-position:left;
+		text-align: left;
+	}
+}
+
+.flight-hotel .tabs a {
+  color: #E1E900;
+ }
+.resize-img {
+    height: auto !important;
+    width: 100% !important;
+}

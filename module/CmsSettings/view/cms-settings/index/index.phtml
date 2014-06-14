@@ -1,0 +1,26 @@
+<?php $this->headLink()->appendStylesheet('/css/cmssettings.css'); ?>
+<?php $this->headScript()->appendFile('/js/cmssettings.js'); ?>
+<div class="well">	
+	<div class="row">
+        <div class="col-md-12">
+	    <h3 class="pull-left">Ustawienia: zmiana hasła</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+		</div>
+    </div>
+    <div class="row">
+		<div class="col-md-4">
+			<p class="help-block"><label for="oldPassword"><span class="required">*</span>Stare hasło: </label></p>
+			<input type="password" name="oldPassword" id="oldPassword" class="form-control" /> <br>
+			<p class="help-block"><label for="newPassword"><span class="required">*</span>Nowe hasło: </label></p>
+			<input type="password" name="newPassword" id="newPassword" class="form-control" /> <br>
+			<p class="help-block"><label for="newPasswordRepeat"><span class="required">*</span>Powtórz nowe hasło: </label></p>
+			<input type="password" name="newPasswordRepeat" id="newPasswordRepeat" class="form-control" /> <br>
+		</div>
+		<div class="col-md-12 marginTop">
+			<i class="pull-left"> pola oznaczone <span class="required">*</span> są polami obowiązkowymi </i>
+			<div class="pull-right">
+				<button class='btn btn-primary' type='button' id="savePassword">Zapisz</button>
+			</div>
+		</div>
+	</div>
+</div>

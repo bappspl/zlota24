@@ -1,0 +1,23 @@
+<?php $this->headLink()->appendStylesheet('/css/video.css'); ?>
+<div class="well">
+	<div class="row">
+		<div class="col-md-12">
+		    <h3 class="pull-left">Video</h3>
+			<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<iframe width="560" height="315" class="youtube" src="http://www.youtube.com/embed/<?php echo $this->description; ?>" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div class="col-md-6">
+			<p class="help-block"><?php echo $this->formLabel($form->get('link')); ?></p>
+        	<?php echo $this->formInput($form->get('link')->setAttributes(array('disabled' => 'disabled'))); ?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 marginTop">
+			<button class='btn btn-primary pull-right' type='button' onClick="window.location.href='/admin/video/edit'">Edycja</button>
+		</div>
+	</div>
+</div>

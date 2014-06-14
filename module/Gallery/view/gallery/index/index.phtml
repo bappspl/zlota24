@@ -1,0 +1,56 @@
+<?php $this->headLink()->appendStylesheet('/css/gallery.css'); ?>
+<?php $this->headScript()->appendFile('/js/gallery.js'); ?>
+<div class="well">
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Lista galerii</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="row">
+	<table class="table table-striped custab mainTable">
+	    <thead style="border-bottom: 2px solid rgb(141, 141, 141);">
+			<tr>
+	            <th class="id" width="30">Lp.</th>
+	            <th class="name" id="Imie">Nazwa</th>
+	            <th class="action">Akcje</th>
+	        </tr>
+	    </thead>
+		<tbody>
+	        <?php
+			if($this->listGalleries) {
+				$i=1;
+				foreach ($this->listGalleries as $row){
+					echo "<tr>";
+						echo "<td class='lp' width='30'>". $i ."</td>";
+						echo "<td class='name'>". $row->name ."</td>";
+						echo "<td class='action' style='text-align:right;'>";
+							echo "<button class='btn btn-info btn-xs' onClick=\"window.location.href='/admin/gallery/preview/" . $row->id . "'\">
+								  <i class='glyphicon glyphicon-eye-open'></i> Podgląd 
+								  </button> ";
+							echo "<button class='btn btn-warning btn-xs' onClick=\"window.location.href='/admin/gallery/edit/" . $row->id . "'\">
+								  <i class='glyphicon glyphicon-pencil' ></i> Edycja 
+								  </button> ";
+							echo "<button class='btn btn-danger btn-xs deleteGallery' id='". $row->id ."'><i class='glyphicon glyphicon-trash' ></i> Usuwanie 
+								  </button> ";
+						echo "</td>"; 
+					echo "</tr>";
+					$i++;
+				}
+			} else {
+				echo "<tr>";
+					echo "<td class='lp' width='30'></td>";
+					echo "<td class='name'> Brak wyników. </td>";
+					echo "<td class='action'></td>";
+				echo "</tr>";
+			}
+			?>
+		</tbody>
+	</table>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button class='btn btn-primary' type='button' onClick="window.location.href='/admin/gallery/add'">Dodaj nową</button>
+		</div>
+	</div>
+</div>
+</div>

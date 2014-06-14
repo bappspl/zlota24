@@ -1,0 +1,37 @@
+.offer-background{
+	
+}
+
+.img-responsive{
+	-webkit-transition: all 0s;
+	-moz-transition: all 0s;
+	-o-transition: all 0s;
+	-ms-transition: all 0s;
+	 transition: all 0s; 
+}
+
+@media (max-width: 780px) {	
+	.img-inline{
+		display: none;
+	}	
+}
+
+.offer-image{
+	max-width: 600px;
+	max-height: 280px;
+	margin-right: 40px;	
+	border: 8px solid #f1f1f1;
+}	
+
+.offer-buttons{
+	margin-top: 10px;
+}
+
+.offer-edit-image{
+	max-width: 200px;
+}
+
+.offer-index-image{
+	max-width: 100%;
+	max-height: 280px;
+}

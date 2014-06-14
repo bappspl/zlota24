@@ -1,0 +1,14 @@
+.spinner-action, .spinner-modal {
+	display:none;
+}
+.error-validate {
+	display:none;
+	color:red;
+}
+.red, .required { color:red;}
+.marginTop {
+	margin-top: 20px;
+} 
+#newTag {display: none;}
+.newTag { padding-left: 0px; }
+.buttonNewTag { padding-right: 0px; width: auto;}

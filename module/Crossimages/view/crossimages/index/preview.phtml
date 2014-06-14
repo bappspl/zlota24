@@ -1,0 +1,24 @@
+<?php $this->headLink()->appendStylesheet('/css/crossimages.css'); ?>
+<div class="well">
+<input type="hidden" id="idCrossimages" value="<?php echo $this->id; ?>" />
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Podgląd odcięcia</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p class="help-block"><?php echo $this->formLabel($form->get('first_row')); ?></p>
+        <?php echo $this->formInput($form->get('first_row')->setAttributes(array('disabled' => 'disabled'))); ?>
+		 <p class="help-block"><?php echo $this->formLabel($form->get('second_row')); ?></p>
+        <?php echo $this->formInput($form->get('second_row')->setAttributes(array('disabled' => 'disabled'))); ?>
+	</div>
+	<div class="col-md-12 marginTop">
+		<div class="pull-right">
+			<button class='btn btn-primary' type='button' onClick="window.location.href='/admin/crossimages'">Powrót</button>
+		</div>
+	</div>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+</div>

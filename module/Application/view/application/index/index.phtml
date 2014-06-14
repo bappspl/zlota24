@@ -1,0 +1,346 @@
+<a id="navArrowUp"></a> 
+        <!-- Section Header Begin -->
+        <section class="header">            
+            <div class="topnav">
+                <!-- Static navbar -->
+                <div class="navbar navbar-custom navbar-static-top" role="navigation">
+                  <div class="container">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#home" data-scroll><img src="/zlota24/img/logo2.png" alt="vitravel" /></a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#offer" data-scroll>Oferta</a></li>
+                        <li><a href="#rooms" data-scroll>Pokoje</a></li>
+                        <li><a href="#gallery" data-scroll>Galeria</a></li> 
+                        <li><a href="#video" data-scroll>Video</a></li>                 
+                        <li><a href="#contact" data-scroll>Kontakt</a></li>
+                      </ul>
+                    </div><!--/.nav-collapse -->
+                  </div>
+                </div>
+            </div>
+            
+            <div class="slider">
+                <div id="owl-slider" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <a href="javascript:;" data-text="Zapraszamy do wypoczynku w naszym obiekcie"><img src="/zlota24/img/slider/slide1.jpg" class="img-responsive"></a>
+                    </div>
+                    <div class="item">
+                        <a href="javascript:;" data-text="Niezapomniane przeżycia dla całej rodziny!"><img src="/zlota24/img/slider/slide2.jpg" class="img-responsive"></a>
+                    </div>
+                    <div class="item">
+                        <a href="javascript:;" data-text="ZŁOTA 24 - prawdopodobnie najlepszy adres nad Bałtykiem"><img src="/zlota24/img/slider/slide3.jpg" class="img-responsive"></a>
+                    </div>
+                </div>
+                <div class="slider-arrows">
+                    <i class='icon-arrow-left prev'></i>&nbsp;
+                    <i class='icon-arrow-right next'></i>
+                </div>
+            </div>
+            
+        </section>
+        <!-- Section Header End -->
+
+        <!-- Section About Us Begin -->
+        <section id="offer" class="offer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">                             
+                        <h1>Oferta</h1>
+                        <div class="desc" style="text-align: justify;">                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                <img src="/img/offer/<?php echo $offer->image ?>" align="left" alt="" class="img-responsive img-inline aaa offer-image">
+                                </div>
+                                <div class="col-md-6">
+                                    <?php echo $offer->description_1 ?>
+                                    <br />
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:20px;">
+                                <div class="col-md-6">
+                                    <?php echo $offer->description_3 ?>
+                                </div>
+                                <div class="col-md-6">
+                                    <?php echo $offer->description_2 ?>                               
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section About Us End -->   
+
+        <section class="banner clear1" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row banner-space">
+                    <div class="col-lg-7">
+                        <div class="banner-slogan wow fadeInRight" data-wow-delay="0.7s">
+                            <?php echo $this->crossimages[0]['first_row']; ?><br />
+                            <b><?php echo $this->crossimages[0]['second_row']; ?></b><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Most Popular Tours Begin -->
+        <section id="rooms" class="tours">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Pokoje</h1>
+                    </div>
+                </div>                  
+                <div class="row">                   
+                    <div id="owl-tours" class="owl-carousel owl-theme">
+                        <?php
+                            foreach ($galleries as $key => $gallery) {
+                                echo '<div class="item wow fadeInDown" data-wow-delay="0.5s">';
+                                     echo '<img src="/img/gallery'.$gallery->image.'" alt="" class="img-responsive" />';                            
+                                     echo '<div class="tour-title">';                                
+                                         echo '<div class="title">'.$gallery->name.'</div>';                                
+                                     echo '</div>';
+                                     echo '<div class="tour-details">';
+                                         echo $gallery->price . '<br><br>';                      
+                                         echo '<button type="button" class="btn btn-lg btn-primary" id="'.$gallery->id.'" href="#gallery" data-scroll>sprawdź</button>';                                
+                                     echo '</div>';
+                                 echo '</div>';
+                            }
+                        ?>                         
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Most Popular Tours Deal End -->
+
+            
+        
+        <section class="banner clear2" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row banner-space">
+                    <div class="col-lg-7 pull-right">
+                        <div class="banner-slogan wow fadeInLeft rightText" data-wow-delay="0.7s">
+                            <?php echo $this->crossimages[1]['first_row']; ?><br />
+                            <b><?php echo $this->crossimages[1]['second_row']; ?></b><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Flights & Hotels Begin -->
+        <section id="gallery" class="flight-hotel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Galeria</h1>
+                        <div class="tabs">
+                            <ul>
+                                <?php
+                                    $i = 1;
+                                    foreach ($galleriesName as $key => $galleryName) {
+                                        if($i == 1) {
+                                            echo '<li class="active"><a href="javascript:;" class="house'.$galleryName->id.'">'.$galleryName->name.'</a></li>';
+                                            $i++;
+                                        } else {
+                                            echo '<li><a href="javascript:;" class="house'.$galleryName->id.'">'.$galleryName->name.'</a></li>'; 
+                                        }
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="tabs-content">
+                            <?php
+                                $a = 1;
+                                foreach ($galleriesData as $key => $gallery) {
+                                    if($a == 1) {
+                                        echo '<div id="house'.$gallery['id'].'" class="content active">';
+                                        $a++;
+                                    } else {
+                                        echo '<div id="house'.$gallery['id'].'" class="content">';
+                                    }
+                                    echo '<div class="nano-content">';      
+                                        echo '<div class="item">';
+                                            echo '<div class="row house-gallery">';
+                                                foreach ($gallery['photos'] as $key => $photo) {
+                                                    $realPath = substr($photo->image, 6);
+                                                    echo '<div class="col-lg-3">';
+                                                    echo '<div class="pictures">';
+                                                        echo '<a href="'.$realPath.'">';
+                                                            echo '<img class="resize-img" src="'.$realPath.'" />';
+                                                           echo '</a>';
+                                                        echo '</div>';
+                                                    echo '</div>';
+                                                }                                                       
+                                            echo '<div class="col-lg-12 house-desc">';
+                                                echo '<h2>Informacje dodatkowe</h2>';
+                                                echo $gallery['description'] . '<br>';
+                                                echo '<ul class="house-icons">';
+                                                    foreach ($gallery['icons'] as $key => $icon) {
+                                                    echo '<li><img src="/img/icons/icon_'.$icon->id_icon.'.png" rel="tooltip" data-toggle="tooltip" data-original-title="'.$icon->name.'"></li> ';
+                                                    }
+                                            echo '</ul>';
+                                            echo '</div>';                       
+                                            
+                                        echo '</div>';
+                                    echo '</div>';                                      
+                                echo '</div>';
+                            echo '</div>';
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section Flights & Hotels End -->
+
+
+        
+        <section class="banner clear3" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row banner-space">
+                    <div class="col-lg-offset-3 col-lg-6">
+                        <div class="banner-slogan wow fadeInRight centerText" data-wow-delay="0.7s">
+                            <?php echo $this->crossimages[2]['first_row']; ?><br />
+                            <b><?php echo $this->crossimages[2]['second_row']; ?></b><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section About Us Begin -->
+        <section id="video" class="offer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center"> 
+                        <h1>Video</h1>  
+                        <div class="desc">
+                            <iframe width="560" height="315" class="youtube" src="http://www.youtube.com/embed/<?php echo $this->video; ?>" frameborder="0" allowfullscreen></iframe>                     
+                        </div>              
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Section About Us End -->   
+
+        <section class="banner clear4" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row banner-space">
+                    <div class="col-lg-7">
+                        <div class="banner-slogan wow fadeInRight" data-wow-delay="0.7s">
+                            <?php echo $this->crossimages[3]['first_row']; ?><br />
+                            <b><?php echo $this->crossimages[3]['second_row']; ?></b><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="karwia" class="karwia">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">                             
+                        <h1>Karwia</h1>
+                        <div class="desc" style="text-align: justify;">         
+                            <img src="/img/extra/<?php echo $extra->image ?>" align="left" alt="" class="img-responsive img-inline aaa karwia-image">
+                            <?php echo $extra->description_1 ?>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-section" class="contact-section">
+            <div class="container">
+                <div class="row">                   
+                    <div class="col-lg-12">
+                        <h1>Kontakt</h1>
+                        <div class="col-xs-6 pin1">zlota24@onet.pl</div>
+                        <div class="col-xs-6 pin2">733 24 33 24</div>
+                        <div class="col-xs-6 pin3">Karwia</div>
+                        <div class="col-xs-6 pin4">N54° 49' 41.1924" <br>
+                        E18° 12' 45.0648"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Begin -->
+        <footer id="contact" class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <h2>Facebook</h2>
+                        <div class="footer-text">
+                            <!-- Karwia <br>
+                            733 24 33 24 <br>                       
+                            zlota24@onet.pl  -->                        
+                        </div>
+                        <!-- <div class="social-icons">
+                            <a href="#" class="icon-social-facebook"></a>
+                            <a href="#" class="icon-social-twitter"></a>
+                            <a href="#" class="icon-social-google-plus"></a>
+                            <a href="#" class="icon-social-envato"></a>
+                        </div>           -->            
+                    </div>
+                    <div class="col-lg-3">
+                        <h2>Formularz kontaktowy</h2>
+                        <div class="form">
+                            <input type="text" name="name" id="name" placeholder="Imię" />
+                            <input type="text" name="email" id="email" placeholder="Email" />
+                            <input type="text" name="phone" id="phone" placeholder="Telefon" />
+                            <textarea name="message" id="message" placeholder="Wiadomość"></textarea>                         
+                            <input type="text" id="defaultReal" name="defaultReal"> 
+                            <div class="row">
+                            <div class="col-lg-12">
+                                 <button type="button" class="btn btn-primary sent-mail">Wyślij</button>
+                                 <img src="/img/ajax-loader.gif" class="mail-loader" style="display: none" alt=""> 
+                             </div>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>Tu nas znajdziesz</h2>
+                        <div id="map"></div>
+                    </div>
+                </div>              
+            </div>
+            
+                                
+            
+            <div class="about-ir container">
+                <div class="col-md-7 footer-info">
+                    2014 &copy; <a href="#">złota24.pl</a>, realizacja: <a href="http://web-ir.pl" target="_blank">web-ir.pl</a> <?php echo $this->tags; ?>
+                </div>
+                <div class="col-md-5 container footer">
+                    <ul>
+                        <li><a href="#home" data-scroll>Strona główna</a></li>
+                        <li>|</li>
+                        <li><a href="#offer" data-scroll>Oferta</a></li>
+                        <li>|</li>
+                        <li><a href="#rooms" data-scroll>Pokoje</a></li>
+                        <li>|</li>
+                        <li><a href="#gallery" data-scroll>Galeria</a></li> 
+                        <li>|</li>
+                        <li><a href="#video" data-scroll>Video</a></li> 
+                        <li>|</li>                      
+                        <li><a href="#contact" data-scroll>Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>

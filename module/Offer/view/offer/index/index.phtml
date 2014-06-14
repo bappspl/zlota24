@@ -1,0 +1,40 @@
+<?php $this->headLink()->appendStylesheet('/css/offer.css'); ?>
+
+<div class="well">
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Oferta</h3>		
+	</div>
+</div>
+
+
+
+<div class="row " >
+	<div class="col-lg-12 offer-background">						
+		<div class="desc" style="text-align: justify;">							
+			<div class="row">
+				<div class="col-md-6">
+				<img src="/img/offer/<?php echo $offer->image ?>" align="left" alt="" class="img-responsive img-inline aaa offer-index-image">
+				</div>
+				<div class="col-md-6">
+					<?php echo $offer->description_1 ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<?php echo $offer->description_3 ?>							
+				</div>
+				<div class="col-md-6">
+					<?php echo $offer->description_2 ?>							
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button class='btn btn-primary' style="margin-top: 10px;"  type='button' onClick="window.location.href='/admin/offer/edit'">Edytuj</button>
+		</div>
+	</div>
+</div>
+
+</div>

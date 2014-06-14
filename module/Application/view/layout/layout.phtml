@@ -1,0 +1,71 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">        
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')            
+        ?>
+        <?php echo $this->headTitle( $this->translate('Złota24.pl'))?>
+        <?php echo $this->headScript()->prependFile($this->basePath() . '/zlota24/js/modernizr.custom.27294.js'); ?>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+        <?php echo $this->headLink()->appendStylesheet('/zlota24/css/bootstrap.css')
+                                    ->appendStylesheet('/zlota24/css/owl.carousel.css')
+                                    ->appendStylesheet('/zlota24/css/owl.theme.css')
+                                    ->appendStylesheet('/zlota24/css/owl.transitions.css')
+                                    ->appendStylesheet('/zlota24/css/font-awesome.css')
+                                    ->appendStylesheet('/zlota24/css/metrize-icon.css')
+                                    ->appendStylesheet('/zlota24/css/animate.min.css')
+                                    ->appendStylesheet('/zlota24/css/main.css')
+                                     ->appendStylesheet('/captcha/jquery.realperson.css')
+                                    ->appendStylesheet('/zlota24/css/jquery.fancybox.css'); ?>  
+    </head>
+    <body id="home">
+        <?php echo $this->content ?>
+        <?php echo $this->inlineScript() ?>
+         <?php echo $this->headScript()->appendFile($this->basePath() . '/zlota24/js/jquery-1.11.0.min.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/bootstrap.min.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/owl.carousel.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/smooth-scroll.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/wow.min.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/main.js')
+                                       ->appendFile($this->basePath() . '/captcha/jquery.realperson.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/jquery.fancybox.pack.js')
+                                       ->appendFile($this->basePath() . '/js/mail.js')
+                                       ->appendFile($this->basePath() . '/zlota24/js/jquery.slickhover.js'); ?>
+        <script>
+            $(document).ready(function() {          
+                $(".item a").attr('rel', 'gallery').fancybox({
+                    'overlayOpacity': '0.8',
+                    'overlayColor'  : 'black',
+                    'transitionIn'  : 'elastic',
+                    'transitionOut' : 'fade',
+                    'titlePosition' : 'inside'                                  
+                });
+                 $('#defaultReal').realperson();
+                $( ".pictures" ).each(function() {
+                 $(this).find('img').slickhover();
+                });          
+            });           
+        </script>  
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript">        
+            google.maps.event.addDomListener(window, 'load', init);    
+            function init() {            
+                var mapOptions = {               
+                    zoom: 13,                
+                    center: new google.maps.LatLng(54.828014,18.212687), 
+                };
+                var mapElement = document.getElementById('map');
+                var map = new google.maps.Map(mapElement, mapOptions);
+                var marker = new google.maps.Marker({
+                    position:new google.maps.LatLng(54.828014,18.212687),               
+                    title:"Złota 24"
+                });
+                marker.setMap(map);
+            }
+        </script>
+    </body>
+</html>

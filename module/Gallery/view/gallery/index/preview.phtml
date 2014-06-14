@@ -1,0 +1,95 @@
+<?php $this->headLink()->appendStylesheet('/css/gallery.css'); ?>
+<script type="text/javascript">
+	$(document).ready(function () {
+		var thumbGalleryPath = $('#thumbGallery').val();
+		$('#step1 .addedPhotosAll img').each(function (){
+			if($(this).attr('src').indexOf(thumbGalleryPath) !== -1) {
+				$(this).removeClass('addedPhotoBorder');
+				$(this).addClass('addedPhotoBorderCurrent');
+			}
+		});
+	});
+</script>
+<div class="well">
+<input type="hidden" id="idEditGallery" value="<?php echo $this->id; ?>" />
+<input type="hidden" id="thumbGallery" value="<?php echo $this->image; ?>" />
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Podgląd galerii</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="row step" id="step1">
+    <div class="col-md-6">
+        <p class="help-block"><?php echo $this->formLabel($form->get('name')); ?></p>
+        <?php echo $this->formInput($form->get('name')->setAttributes(array('disabled' => 'disabled'))); ?>
+		<p class="help-block"><?php echo $this->formLabel($form->get('price')); ?></p>
+        <?php echo $this->formTextarea($form->get('price')->setAttributes(array('disabled' => 'disabled'))); ?>
+		<p class="help-block"><?php echo $this->formLabel($form->get('description')); ?></p>
+        <?php echo $this->formTextarea($form->get('description')->setAttributes(array('disabled' => 'disabled'))); ?>
+	</div>
+	<div class="col-md-6">
+		<p class="help-block"><label>Ikony:</label>
+		<?php
+			$i = 0;
+			echo "<table cellpadding='9' >";
+			foreach ($allIcons as $icon) {
+				if($i != 0) {
+					if($i < 6) {
+						echo "<td class='fixTheme'>";
+							if (in_array($icon->id, $icons)) {
+								echo "<input type='checkbox' class='check' disabled checked id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							} else {
+								echo "<input type='checkbox' class='check' disabled id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							}
+						echo "</td>";
+						$i++;
+					} else {
+						echo "<td class='fixTheme'>";
+							if (in_array($icon->id, $icons)) {
+								echo "<input type='checkbox' class='check' disabled checked id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							} else {
+								echo "<input type='checkbox' class='check' disabled id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							}
+						echo "</td></tr>";
+						$i = 0;
+					}
+				} else {
+					echo "<tr><td class='fixTheme'>";
+							if (in_array($icon->id, $icons)) {
+								echo "<input type='checkbox' class='check' disabled checked id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							} else {
+								echo "<input type='checkbox' class='check' disabled id='".$icon->name."' value='".$icon->id."' />&nbsp";
+								echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+							}
+						echo "</td>";
+					$i++;
+				}
+			}
+			echo "</table>";
+		?>
+	</div>
+	<div class="col-md-12">
+		<p class="help-block"><label>Dodane zdjęcia:</label></p>
+		<div class="col-md-12 addedPhotosAll">
+			<?php
+				foreach ($photos as $photo) {
+					$newPath = str_replace("public","",$photo->image);
+					echo '<img src="'.$newPath.'" class="addedPhoto addedPhotoBorder editGalleryPhoto" />';
+				}
+			?>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button class='btn btn-primary' type='button' onClick="window.location.href='/admin/gallery'">Powrót</button>
+		</div>
+	</div>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+</div>

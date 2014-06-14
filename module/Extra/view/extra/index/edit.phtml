@@ -1,0 +1,59 @@
+<?php $this->headLink()->appendStylesheet('/css/offer.css'); ?>
+<?php $this->headScript()->appendFile('/ckeditor/ckeditor.js')
+                         ->appendFile('/ckeditor/adapters/jquery.js'); ?>
+<?php $this->headScript()->appendFile('/js/jquery.uploadify.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/uploadify.css'); ?>
+
+<div class="well">
+	<div class="row">
+		<div class="col-md-12">	
+			<h3 class="pull-left">Edytowanie sekcji Karwia</h3>
+		</div>
+	</div>
+	<div class="row">
+		<form action="/admin/extra/edit" method="POST" name="post" id="post">
+			<?php echo $this->formHidden($form->get('image'));?>
+			<div class="col-md-12">				
+					<div class="col-md-6">
+						<?php echo $this->formLabel($form->get('image-upload'));?>
+						<?php echo $this->formElement($form->get('image-upload'));?>
+						<div class="col-md-12" id="photo-view">
+							<?php if (!empty($image)): ?>
+								<img src="/img/offer/<?php echo $image; ?>" alt="" class="offer-edit-image">
+							<?php endif; ?>
+						</div>
+					</div>
+												
+			</div>
+			<div class="col-md-12">			
+				
+						<?php echo $this->formLabel($form->get('description_1'));?>
+						<?php echo $this->formElement($form->get('description_1'));?>
+								
+			</div>			
+			<div class="col-md-12 text-right offer-buttons">				
+				<button class='btn' type='button' onClick="window.location.href='/admin/extra'">Anuluj</button>	
+				<?php echo $this->formRow($form->get('submit'));?>								
+			</div>			
+		</form>
+	</div>	
+</div>		
+<script>
+	$('#textarea1').ckeditor({
+        toolbar: 'Full',        
+    });   
+	$(function() {
+    	$('#image-upload').uploadify({
+	        'swf'      : '/uploadify.swf',
+	        'uploader' : '/admin/extra/uploadifyAjax',
+	        'checkExisting' : '/admin/extra/checkExistPhotoAjax',
+	        'multi'    : false,
+	        'fileTypeExts' : '*.jpg; *.png',
+	        'onUploadSuccess' : function(file, data, response) {
+	        	$('#photo-view').html('');        	
+	        	$('#photo-view').append('<img class="offer-edit-image" src="/img/extra/' + file.name +'" />');
+	        	$('#image').val(file.name);
+			}
+	    });
+	});
+</script>

@@ -1,0 +1,154 @@
+<?php $this->headScript()->appendFile('/js/jquery.uploadify.js'); ?>
+<?php $this->headScript()->appendFile('/js/gallery.js'); ?>
+<?php $this->headScript()->appendFile('/js/jquery.uploadify.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/offer.css'); ?>
+<?php $this->headScript()->appendFile('/ckeditor/ckeditor.js')
+                         ->appendFile('/ckeditor/adapters/jquery.js'); ?>
+<?php $this->headLink()->appendStylesheet('/css/uploadify.css'); ?>
+<?php $this->headLink()->appendStylesheet('/css/gallery.css'); ?>
+<div class="well">
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Dodawanie galerii</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary btn-circle step1">1</button>
+            <p>Dane &nbsp</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle step2" disabled="disabled">2</button>
+            <p>Zdjęcia</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle step3" disabled="disabled">3</button>
+            <p>Podgląd</p>
+        </div> 
+    </div>
+</div>
+<div class="row step" id="step1">
+    <div class="col-md-6">
+        <p class="help-block"><span class="required">*</span><?php echo $this->formLabel($form->get('name')); ?></p>
+        <?php echo $this->formInput($form->get('name')); ?>
+		<div class="error-validate"> *uzupełnij to pole </div>
+		<p class="help-block"><span class="required">*</span><?php echo $this->formLabel($form->get('price')); ?></p>
+        <?php echo $this->formTextarea($form->get('price')); ?>
+		<div class="error-validate"> *uzupełnij to pole </div>
+		<p class="help-block"><span class="required">*</span><?php echo $this->formLabel($form->get('description')); ?></p>
+        <?php echo $this->formTextarea($form->get('description')); ?>
+		<div class="error-validate"> *uzupełnij to pole </div>
+	</div>
+	<div class="col-md-6">
+		<p class="help-block"><label>Ikony:</label>
+		<?php
+			$i = 0;
+			echo "<table cellpadding='9' >";
+			foreach ($icons as $icon) {
+				if($i != 0) {
+					if($i < 6) {
+						echo "<td class='fixTheme'>";
+							echo "<input type='checkbox' class='check' id='".$icon->name."' value='".$icon->id."' />&nbsp";
+							echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+						echo "</td>";
+						$i++;
+					} else {
+						echo "<td class='fixTheme'>";
+							echo "<input type='checkbox' class='check' id='".$icon->name."' value='".$icon->id."' />&nbsp";
+							echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+						echo "</td></tr>";
+						$i = 0;
+					}
+				} else {
+					echo "<tr><td class='fixTheme'>";
+							echo "<input type='checkbox' class='check' id='".$icon->name."' value='".$icon->id."' />&nbsp";
+							echo "<label for='".$icon->name."'><img src='/img/icons/".$icon->image."' /></label>";
+						echo "</td>";
+					$i++;
+				}
+			}
+			echo "</table>";
+		?>
+	</div>
+	<div class="col-md-12">
+		<i class="pull-left"> pola oznaczone <span class="red">*</span> są polami obowiązkowymi </i>
+		<div class="pull-right">
+			<button class='btn' type='button' onClick="window.location.href='/admin/gallery'">Wyjdź</button>
+			<button class='btn btn-primary' type='button' id="saveGallery">Dalej</button>
+		</div>
+	</div>
+</div>
+<div class="row" id="step2">
+	<div class="col-md-12 step">
+		<input type="hidden" id="idGallery" />
+		<p class="help-block"><label>Dodaj zdjęcia:</label></p>
+		<div id="queue"></div>
+		<input id="file_upload" name="file_upload" type="file" multiple="true" accept="image/*" />
+	</div>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button class='btn' type='button' onClick="window.location.href='/admin/gallery'">Wyjdź</button>
+			<button class='btn btn-primary' type='button' disabled id="savePhotosGallery">Dalej</button>
+		</div>
+	</div>
+</div>
+<div class="row step" id="step3">
+	<div class="col-md-12 step">
+		<input type="hidden" id="idGallery" />
+		<p class="help-block"><label>Wprowadzone dane:</label></p>
+		<div class="col-md-6">
+	        <p class="help-block"><label for="endName">Nazwa:</label></p>
+	        <input type="text" class="form-control" id="endName" disabled />
+			<p class="help-block"><label for="endPrice">Cena:</label></p>
+	       	<textarea id="endPrice" class="form-control" disabled></textarea>
+			<p class="help-block"><label for="endDescription">Opis:</label></p>
+	        <textarea id="endDescription" class="form-control" disabled></textarea>
+		</div>
+		<div class="col-md-6">
+			<p class="help-block"><label>Ikony:</label>
+			<?php
+				$i = 0;
+				echo "<table cellpadding='8' >";
+				foreach ($icons2 as $icon2) {
+					if($i != 0) {
+						if($i < 6) {
+							echo "<td class='fixTheme'>";
+								echo "<input type='checkbox' disabled class='check' id='".$icon2->name."' value='".$icon2->id."' />&nbsp";
+								echo "<label for='".$icon2->name."'><img src='/img/icons/".$icon2->image."' /></label>";
+							echo "</td>";
+							$i++;
+						} else {
+							echo "<td class='fixTheme'>";
+								echo "<input type='checkbox' disabled class='check' id='".$icon2->name."' value='".$icon2->id."' />&nbsp";
+								echo "<label for='".$icon2->name."'><img src='/img/icons/".$icon2->image."' /></label>";
+							echo "</td></tr>";
+							$i = 0;
+						}
+					} else {
+						echo "<tr><td class='fixTheme'>";
+								echo "<input type='checkbox' disabled class='check' id='".$icon2->name."' value='".$icon2->id."' />&nbsp";
+								echo "<label for='".$icon2->name."'><img src='/img/icons/".$icon2->image."' /></label>";
+							echo "</td>";
+						$i++;
+					}
+				}
+				echo "</table>";
+			?>
+		</div>
+		<div class="col-md-12">
+			<p class="help-block"><label>Wybrane zdjęcia</label> (<span class="required">*</span><span id="requiredThumb">kliknij na zdjęcie aby wybrać miniaturkę</span>):</p>
+			<div class="col-md-12 allPhotos">
+				
+			</div>
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button class='btn btn-primary' id="savePhotosSummary" type='button'>Zapisz i zakończ</button>
+		</div>
+	</div>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+</div>

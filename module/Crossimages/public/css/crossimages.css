@@ -1,0 +1,11 @@
+.spinner-action {
+	display:none;
+}
+.error-validate {
+	display:none;
+	color:red;
+}
+.red, .required { color:red;}
+.marginTop {
+	margin-top: 20px;
+} 

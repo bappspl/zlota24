@@ -1,0 +1,94 @@
+<?php $this->headLink()->appendStylesheet('/css/tags.css'); ?>
+<?php $this->headScript()->appendFile('/js/tags.js'); ?>
+<div class="well">
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Lista tagów</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="row">
+	<table class="table table-striped custab mainTable">
+	    <thead style="border-bottom: 2px solid rgb(141, 141, 141);">
+			<tr>
+	            <th class="id" width="30">Lp.</th>
+	            <th class="name" id="Imie">Nazwa</th>
+	            <th class="action">Akcje</th>
+	        </tr>
+	    </thead>
+		<tbody>
+	        <?php
+			if($this->tagsList) {
+				$i=1;
+				foreach ($this->tagsList as $row){
+					echo "<tr>";
+						echo "<td class='lp' width='30'>". $i ."</td>";
+						echo "<td class='name'>". $row->name ."</td>";
+						echo "<td class='action' style='text-align:right;'>";
+							echo "<button class='btn btn-warning btn-xs editTag' id='" . $row->id . "' >
+								  <i class='glyphicon glyphicon-pencil' ></i> Edycja 
+								  </button> ";
+							echo "<button class='btn btn-danger btn-xs deleteTag' id='". $row->id ."'><i class='glyphicon glyphicon-trash' ></i> Usuwanie 
+								  </button> ";
+						echo "</td>"; 
+					echo "</tr>";
+					$i++;
+				}
+			} else {
+				echo "<tr>";
+					echo "<td class='lp' width='30'></td>";
+					echo "<td class='name'> Brak wyników. </td>";
+					echo "<td class='action'></td>";
+				echo "</tr>";
+			}
+			?>
+		</tbody>
+	</table>
+	<div class="col-md-12">
+		<button class='btn btn-primary pull-right' id="addTag" type='button'>Dodaj nowy tag</button>
+	</div>
+</div>
+</div>
+
+<div class="modal fade" id="newTag">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Tworzenie tagu</h4>
+      </div>
+      <div class="modal-body">
+      	<p class="help-block"><span class="required">*</span><label for="addNewTag">Wprowadź tag:</label></p>
+        <input type="text" id="addNewTag" name="addNewTag" class="form-control">
+        <div class="error-validate"> *uzupełnij to pole </div>
+      </div>
+      <div class="modal-footer">
+      	<div class="spinner-modal pull-left"><img src="/img/ajax-loader.gif" /></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+        <button type="button" id="saveTag" class="btn btn-primary">Zapisz</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="editTag">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Edycja tagu</h4>
+      </div>
+      <div class="modal-body">
+      	<input type="hidden" id="idEditTag" />
+      	<p class="help-block"><span class="required">*</span><label for="editNewTag">Wprowadź tag:</label></p>
+        <input type="text" id="editNewTag" name="editNewTag" class="form-control">
+        <div class="error-validate"> *uzupełnij to pole </div>
+      </div>
+      <div class="modal-footer">
+      	<div class="spinner-modal pull-left"><img src="/img/ajax-loader.gif" /></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+        <button type="button" id="saveEditTag" class="btn btn-primary">Zapisz</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

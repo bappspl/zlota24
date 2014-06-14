@@ -1,0 +1,29 @@
+<?php $this->headLink()->appendStylesheet('/css/crossimages.css'); ?>
+<?php $this->headScript()->appendFile('/js/crossimages.js'); ?>
+<div class="well">
+<input type="hidden" id="idCrossimages" value="<?php echo $this->id; ?>" />
+<div class="row">
+	<div class="col-md-12">
+	    <h3 class="pull-left">Edycja odcięcia</h3>
+		<div class="spinner-action pull-right"><img src="/img/ajax-loader.gif" /></div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <p class="help-block"><span class="required">*</span><?php echo $this->formLabel($form->get('first_row')); ?></p>
+        <?php echo $this->formInput($form->get('first_row')); ?>
+		<div class="error-validate"> *uzupełnij to pole </div>
+		<p class="help-block"><span class="required">*</span><?php echo $this->formLabel($form->get('second_row')); ?></p>
+        <?php echo $this->formInput($form->get('second_row')); ?>
+		<div class="error-validate"> *uzupełnij to pole </div>
+	</div>
+	<div class="col-md-12 marginTop">
+		<i class="pull-left"> pola oznaczone <span class="red">*</span> są polami obowiązkowymi </i>
+		<div class="pull-right">
+			<button class='btn' type='button' onClick="window.location.href='/admin/crossimages'">Wyjdź</button>
+			<button class='btn btn-primary' type='button' id="saveEditCrossimages">Zapisz</button>
+		</div>
+	</div>
+</div>
+<?php echo $this->form()->closeTag(); ?>
+</div>
